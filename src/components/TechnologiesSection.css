@@ -1,0 +1,107 @@
+.technologies {
+    width: 100%;
+    padding: 6rem 0;
+    background-color: #e6f9fa;
+    overflow: hidden;
+    text-align: center;
+}
+
+.technologies-container {
+    width: 100%;
+}
+
+.technologies-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+    color: #051c45;
+    padding: 0 2rem;
+}
+
+.scroll-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.scroll-row {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+}
+
+.scroll-content {
+    display: flex;
+    gap: 2rem;
+    white-space: nowrap;
+}
+
+.logo-card {
+    flex: 0 0 auto;
+    width: 180px;
+    height: 180px;
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.logo-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Row 1: Left to Right */
+.ltr .scroll-content {
+    animation: scroll-ltr 30s linear infinite;
+}
+
+/* Row 2: Right to Left */
+.rtl .scroll-content {
+    animation: scroll-rtl 30s linear infinite;
+}
+
+@keyframes scroll-ltr {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes scroll-rtl {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause on hover */
+.scroll-row:hover .scroll-content {
+    animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+    .technologies {
+        padding: 4rem 0;
+    }
+
+    .technologies-title {
+        font-size: 2.2rem;
+        margin-bottom: 3rem;
+    }
+
+    .logo-card {
+        width: 140px;
+        height: 140px;
+    }
+}

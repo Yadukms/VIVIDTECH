@@ -1,0 +1,156 @@
+.why-vivid {
+    width: 100%;
+    padding: 100px 0;
+    background-color: #e6f9fa;
+    /* Match provided bg color */
+    color: #051c45;
+}
+
+.why-vivid-container {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 40px;
+    /* Give space from side margins */
+}
+
+.why-vivid-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.why-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.more-link {
+    text-decoration: none;
+    color: #051c45;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.why-vivid-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.features-side {
+    flex: 1;
+}
+
+.animation-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.accordion-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion-item {
+    border-bottom: 1.5px solid rgba(5, 28, 69, 0.15);
+    padding: 15px 0;
+}
+
+.feature-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.feature-label {
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin: 0;
+    color: #051c45;
+    transition: color 0.3s ease;
+}
+
+.feature-row:hover .feature-label {
+    color: #0061ff;
+}
+
+.arrow {
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+}
+
+.arrow.up {
+    transform: rotate(180deg);
+}
+
+.feature-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease-out;
+    opacity: 0;
+}
+
+.feature-details.visible {
+    max-height: 200px;
+    margin-top: 15px;
+    opacity: 1;
+}
+
+.feature-details p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #4a5568;
+    margin: 0;
+}
+
+/* Floating animation effect */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.floating-animation {
+    animation: float 4s ease-in-out infinite;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 1024px) {
+    .why-vivid-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .why-title {
+        font-size: 2.8rem;
+    }
+
+    .feature-row {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .animation-side {
+        order: -1;
+    }
+}
