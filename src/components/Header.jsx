@@ -9,7 +9,7 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         <div className="logo-section">
-          <img src="/logo.png" alt="Vivid Logo" className="logo" />
+          <span className="logo-text">VividTech</span>
         </div>
 
         <nav className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>

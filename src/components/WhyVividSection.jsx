@@ -37,7 +37,7 @@ const WhyVividSection = () => {
                 <div className="why-vivid-header">
                     <h2 className="why-title">Why VIVIDTECH?</h2>
                     <a href="#about" className="more-link">
-                        More About The Company <span>&rarr;</span>
+                        <span className="link-text">More About The Company</span> <span>&rarr;</span>
                     </a>
                 </div>
 

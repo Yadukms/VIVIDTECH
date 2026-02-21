@@ -154,3 +154,29 @@
         order: -1;
     }
 }
+
+@media (max-width: 768px) {
+    .why-vivid {
+        padding: 60px 0;
+    }
+
+    .why-vivid-container {
+        padding: 0 20px;
+    }
+
+    .why-title {
+        font-size: 2.2rem;
+    }
+
+    .more-link .link-text {
+        display: none;
+    }
+
+    .more-link {
+        font-size: 1.5rem;
+    }
+
+    .feature-label {
+        font-size: 1.3rem;
+    }
+}

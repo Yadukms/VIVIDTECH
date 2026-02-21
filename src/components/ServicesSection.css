@@ -105,24 +105,72 @@
 
 @media (max-width: 992px) {
     .services-grid {
-        grid-template-columns: 1fr;
-        max-width: 600px;
+        max-width: 900px;
         margin-left: auto;
         margin-right: auto;
+        gap: 1.5rem;
     }
 }
 
 @media (max-width: 768px) {
     .services {
-        padding: 4rem 1.5rem;
+        padding: 4rem 1.25rem;
     }
 
     .services-title {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
+        margin-bottom: 1.5rem;
     }
 
     .services-description {
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+        padding: 0 0.5rem;
+        max-width: 100%;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .service-card {
+        max-width: 340px;
+        margin: 0 auto;
+    }
+
+    .card-image-wrap {
+        height: 220px;
+    }
+
+    .card-label {
+        padding: 1.25rem;
+    }
+
+    .card-label h3 {
+        font-size: 1.05rem;
+    }
+
+    .services-footer {
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .know-more {
         font-size: 1.1rem;
-        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-title {
+        font-size: 2rem;
+    }
+
+    .service-card {
+        max-width: 300px;
+    }
+
+    .card-image-wrap {
+        height: 180px;
     }
 }
