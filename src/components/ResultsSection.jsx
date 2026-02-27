@@ -1,79 +1,44 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import './ResultsSection.css';
 
-const Counter = ({ end, duration, suffix = "" }) => {
-    const [count, setCount] = useState(0);
-    const [isVisible, setIsVisible] = useState(false);
-    const counterRef = useRef(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
-            },
-            { threshold: 0.1 }
-        );
-
-        if (counterRef.current) {
-            observer.observe(counterRef.current);
-        }
-
-        return () => {
-            if (counterRef.current) {
-                observer.unobserve(counterRef.current);
-            }
-        };
-    }, []);
-
-    useEffect(() => {
-        if (!isVisible) return;
-
-        let start = 0;
-        const totalFrames = Math.round(duration / 16); // 60fps approx
-        const increment = end / totalFrames;
-
-        const timer = setInterval(() => {
-            start += increment;
-            if (start >= end) {
-                setCount(end);
-                clearInterval(timer);
-            } else {
-                setCount(Math.floor(start));
-            }
-        }, 16);
-
-        return () => clearInterval(timer);
-    }, [isVisible, end, duration]);
-
-    return (
-        <span ref={counterRef} className="counter-number">
-            {count}{suffix}
-        </span>
-    );
-};
-
 const ResultsSection = () => {
-    const stats = [
-        { label: "Expert Hands", value: 80, suffix: "+" },
-        { label: "Project Done", value: 300, suffix: "+" },
-        { label: "Happy Clients", value: 250, suffix: "+" }
-    ];
+    const [isRevealed, setIsRevealed] = useState(false);
 
     return (
-        <section className="results-section">
-            <div className="results-container">
-                <h2 className="results-title">Proven Excellence & Tangible Results</h2>
+        <section
+            className={`transitional-cta ${isRevealed ? 'revealed' : ''}`}
+            onClick={() => setIsRevealed(!isRevealed)}
+        >
+            {/* Snake Staircase (Initial State) */}
+            <div className="snake-staircase">
+                <div className="snake-block s-1"></div>
+                <div className="snake-block s-2"></div>
+                <div className="snake-block s-3"></div>
+                <div className="snake-block s-4"></div>
+                <div className="snake-block s-5"></div>
+            </div>
 
-                <div className="stats-grid">
-                    {stats.map((stat, index) => (
-                        <div key={index} className="stat-item">
-                            <Counter end={stat.value} duration={2000} suffix={stat.suffix} />
-                            <p className="stat-label">{stat.label}</p>
-                        </div>
-                    ))}
-                </div>
+            {/* Top-Left Corner (Revealed State) */}
+            <div className="staircase-tl">
+                <div className="block block-3"></div>
+                <div className="block block-2"></div>
+                <div className="block block-1"></div>
+            </div>
+
+            <div className="cta-content-container">
+                <h2 className="cta-headline">
+                    Vivid Tech Solutions Delivers<br />
+                    Secure, Scalable, And Resilient<br />
+                    Technology & Cloud Services<br />
+                    Designed For Modern Enterprises
+                </h2>
+            </div>
+
+            {/* Bottom-Right Corner (Revealed State) */}
+            <div className="staircase-br">
+                <div className="block block-1"></div>
+                <div className="block block-2"></div>
+                <div className="block block-3"></div>
             </div>
         </section>
     );

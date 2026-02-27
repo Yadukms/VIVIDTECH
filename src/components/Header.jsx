@@ -9,25 +9,27 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         <div className="logo-section">
-          <span className="logo-text">VividTech</span>
+          <img src="/logo.png" alt="VividTech Logo" className="header-logo" />
         </div>
 
         <nav className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
           <ul>
-            <li><a href="#home" onClick={() => setIsMenuOpen(false)}>HOME</a></li>
-            <li><a href="#about" onClick={() => setIsMenuOpen(false)}>ABOUT</a></li>
-            <li><a href="#services" onClick={() => setIsMenuOpen(false)}>SERVICES</a></li>
-            <li><a href="#technologies" onClick={() => setIsMenuOpen(false)}>TECHNOLOGIES</a></li>
-            <li><a href="#career" onClick={() => setIsMenuOpen(false)}>CAREER</a></li>
-            <li><a href="#insights" onClick={() => setIsMenuOpen(false)}>INSIGHTS</a></li>
-            <li><a href="#partners" onClick={() => setIsMenuOpen(false)}>PARTNERS</a></li>
-            <li><a href="#contact" onClick={() => setIsMenuOpen(false)}>CONTACT US</a></li>
+            <li><a href="#home" className="active" onClick={() => setIsMenuOpen(false)}>Home</a></li>
+            <li><a href="#about" onClick={() => setIsMenuOpen(false)}>About</a></li>
+            <li><a href="#service" onClick={() => setIsMenuOpen(false)}>Service</a></li>
+            <li><a href="#technologies" onClick={() => setIsMenuOpen(false)}>Technologies</a></li>
+            <li><a href="#career" onClick={() => setIsMenuOpen(false)}>Career</a></li>
+            <li><a href="#insights" onClick={() => setIsMenuOpen(false)}>Insights</a></li>
+            <li><a href="#partners" onClick={() => setIsMenuOpen(false)}>Partners</a></li>
           </ul>
         </nav>
 
-        <button className="mobile-menu-btn" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        <div className="header-actions">
+          <button className="contact-btn">Contact Us</button>
+          <button className="mobile-menu-btn" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
     </header>
   );

@@ -1,92 +1,298 @@
-.results-section {
+.transitional-cta {
     width: 100%;
-    padding: 100px 0;
-    background-color: #e6f9fa;
-    /* Consistent light cyan background */
+    background-color: #ffffff;
+    /* Initial white background */
+    padding: 12rem 0;
+    position: relative;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.results-container {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 40px;
     text-align: center;
+    cursor: pointer;
+    transition: background-color 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.results-title {
-    font-size: 3.2rem;
-    font-weight: 700;
-    color: #051c45;
-    margin-bottom: 80px;
-    letter-spacing: -0.01em;
+.transitional-cta.revealed {
+    background-color: #0b111e;
+    /* Reveal dark background */
 }
 
-.stats-grid {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
+/* Snake Staircase (Initial State) */
+.snake-staircase {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: opacity 0.6s ease;
 }
 
-.stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-    min-width: 250px;
+.transitional-cta.revealed .snake-staircase {
+    opacity: 0;
+    pointer-events: none;
 }
 
-.counter-number {
-    font-size: 7rem;
-    font-weight: 700;
-    color: #2b59c3;
-    /* Vibrant blue */
-    line-height: 1;
-    margin-bottom: 15px;
-    font-family: 'Inter', sans-serif;
-    /* Apply a slight gradient effect if possible */
-    background: linear-gradient(180deg, #3b82f6 0%, #1e3a8a 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+.snake-block {
+    position: absolute;
+    background-color: #0b111e;
+    /* Dark blocks as requested */
+    transition: background-color 0.8s ease;
 }
 
-.stat-label {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #051c45;
+/* Perfectly continuous zig-zag shape to match image 2 exactly but with #0b111e */
+.s-1 {
+    width: 280px;
+    height: 45%;
+    bottom: 0;
+    left: 0;
+}
+
+.s-2 {
+    width: 55%;
+    height: 140px;
+    bottom: 30%;
+    left: 0;
+}
+
+.s-3 {
+    width: 180px;
+    height: 45%;
+    bottom: 30%;
+    left: 42%;
+}
+
+.s-4 {
+    width: 60%;
+    height: 140px;
+    top: 25%;
+    left: 42%;
+}
+
+.s-5 {
+    width: 300px;
+    height: 45%;
+    top: 0;
+    right: 0;
+}
+
+.cta-content-container {
+    max-width: 1100px;
+    padding: 0 2rem;
+    z-index: 5;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.cta-headline {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1.4;
     margin: 0;
+    letter-spacing: 0.01em;
+    opacity: 0;
+    /* Hidden initially */
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+.transitional-cta.revealed .cta-headline {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Corner Staircase Decorations (Revealed State) */
+.staircase-tl,
+.staircase-br {
+    position: absolute;
+    display: flex;
+    z-index: 2;
+    opacity: 0;
+    /* Hidden initially */
+    transition: opacity 0.8s ease;
+}
+
+.transitional-cta.revealed .staircase-tl,
+.transitional-cta.revealed .staircase-br {
+    opacity: 1;
+}
+
+/* Top Left Positioning */
+.staircase-tl {
+    top: 0;
+    left: 0;
+    align-items: flex-start;
+}
+
+/* Bottom Right Positioning */
+.staircase-br {
+    bottom: 0;
+    right: 0;
+    align-items: flex-end;
+}
+
+.block {
+    background-color: #ffffff;
+}
+
+/* Block Sizes */
+.block {
+    width: 120px;
+    /* Increased width for better proportions */
+}
+
+.staircase-tl .block-1 {
+    height: 100px;
+}
+
+.staircase-tl .block-2 {
+    height: 200px;
+}
+
+.staircase-tl .block-3 {
+    height: 300px;
+}
+
+.staircase-br .block-1 {
+    height: 100px;
+}
+
+.staircase-br .block-2 {
+    height: 200px;
+}
+
+.staircase-br .block-3 {
+    height: 300px;
+}
+
+/* Entry Animations */
+.transitional-cta.revealed .staircase-tl .block,
+.transitional-cta.revealed .staircase-br .block {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.transitional-cta.revealed .block-1 {
+    animation-delay: 0.2s;
+}
+
+.transitional-cta.revealed .block-2 {
+    animation-delay: 0.4s;
+}
+
+.transitional-cta.revealed .block-3 {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsiveness */
 @media (max-width: 1024px) {
-    .results-title {
-        font-size: 2.5rem;
+    .transitional-cta {
+        padding: 8rem 0;
     }
 
-    .counter-number {
-        font-size: 5rem;
+    .staircase-tl .block,
+    .staircase-br .block {
+        width: 60px;
     }
 
-    .stat-label {
-        font-size: 1.4rem;
+    .staircase-tl .block-1 {
+        height: 60px;
+    }
+
+    .staircase-tl .block-2 {
+        height: 120px;
+    }
+
+    .staircase-tl .block-3 {
+        height: 180px;
+    }
+
+    .staircase-br .block-1 {
+        height: 60px;
+    }
+
+    .staircase-br .block-2 {
+        height: 120px;
+    }
+
+    .staircase-br .block-3 {
+        height: 180px;
+    }
+
+    .s-1 {
+        width: 100px;
+        height: 150px;
+    }
+
+    .s-2 {
+        width: 200px;
+        height: 75px;
+        bottom: 75px;
+    }
+
+    .s-3 {
+        width: 125px;
+        height: 175px;
+        bottom: 150px;
+        left: 200px;
+    }
+
+    .s-4 {
+        width: 300px;
+        height: 75px;
     }
 }
 
 @media (max-width: 768px) {
-    .results-section {
-        padding: 60px 0;
+
+    .staircase-tl,
+    .staircase-br {
+        opacity: 0.5;
+        /* Fade out decorations on smaller screens */
     }
 
-    .stats-grid {
-        flex-direction: column;
-        gap: 60px;
+    .cta-headline {
+        font-size: 1.5rem;
+        line-height: 1.5;
     }
 
-    .results-title {
-        margin-bottom: 50px;
+    .snake-staircase {
+        opacity: 0.3;
+    }
+
+    /* Less intrusive on mobile */
+}
+
+@media (max-width: 480px) {
+
+    .staircase-tl,
+    .staircase-br,
+    .snake-staircase {
+        display: none;
     }
 }

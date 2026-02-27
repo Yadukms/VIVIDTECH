@@ -1,159 +1,288 @@
 .hero {
     position: relative;
     width: 100%;
-    min-height: 80vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: #050a14;
+    background-image: url('/Hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 4rem 2rem;
     text-align: center;
+    color: white;
 }
 
-.grid-background {
+.hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: 50px 50px;
+    background: rgba(0, 0, 0, 0.4);
     z-index: 1;
-}
-
-.radial-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg,
-            rgba(7, 25, 50, 0) 25%,
-            rgba(10, 42, 85, 0) 51%,
-            rgba(86, 143, 129, 0.5) 74%,
-            rgba(48, 50, 113, 0.5) 91%,
-            rgba(4, 7, 15, 0) 100%);
-    z-index: 2;
-    pointer-events: none;
-    filter: blur(40px);
 }
 
 .hero-content {
     position: relative;
     z-index: 10;
-    max-width: 1000px;
+    max-width: 900px;
+    margin-top: -50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero-title {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-}
-
-.hero-title span {
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 700;
-    color: #e0e6ed;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-}
-
-.hero-title .highlight {
-    color: #ffffff;
-}
-
-.hero-description-container {
-    max-width: 700px;
-    margin: 0 auto 3rem;
-    padding: 2.5rem;
-    background: linear-gradient(180deg,
-            rgba(7, 25, 50, 0) 25%,
-            rgba(10, 42, 85, 0) 51%,
-            rgba(86, 143, 129, 0.5) 74%,
-            rgba(48, 50, 113, 0.5) 91%,
-            rgba(4, 7, 15, 0) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 4px;
-    backdrop-filter: blur(10px);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out 0.3s forwards;
 }
 
 .hero-description {
-    color: #a0aec0;
     font-size: 1.1rem;
     line-height: 1.6;
-    font-weight: 400;
-    max-width: 600px;
+    max-width: 750px;
     margin: 0 auto 2.5rem;
+    opacity: 0;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    animation: fadeUp 0.8s ease-out 0.5s forwards;
 }
 
-.enquire-btn {
-    background: linear-gradient(90deg, #0061ff 0%, #004ecc 100%);
+.enquire-now-btn {
+    background: #3b82f6;
     color: white;
     border: none;
-    padding: 1rem 2.5rem;
+    padding: 0.9rem 2.22rem;
     font-size: 1rem;
     font-weight: 600;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 15px rgba(0, 97, 255, 0.3);
-    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out 0.7s forwards;
 }
 
-.enquire-btn:hover {
+@keyframes fadeUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.enquire-now-btn:hover {
+    background: #2563eb;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 97, 255, 0.5);
-    filter: brightness(1.1);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Info Box Styling */
+.hero-info-section {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 20;
+}
+
+.info-steps-container {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+}
+
+.hero-step {
+    background: white;
+    height: 50px;
+    width: 150px;
+    opacity: 0;
+    box-sizing: border-box;
+    animation: slideInRight 1s ease-out 0.8s forwards;
+}
+
+.h-step-1 {
+    height: 50px;
+    width: 180px;
+    margin-right: -2px;
+}
+
+.h-step-2 {
+    height: 100px;
+    width: 150px;
+    margin-right: -2px;
+}
+
+.info-box-wrapper.main-step {
+    background: white;
+    padding: 2rem !important;
+    min-width: 320px;
+    height: 180px !important;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    box-shadow: -10px -10px 40px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    position: relative !important;
+    overflow: hidden !important;
+    animation: slideInRight 1s ease-out 0.9s forwards;
+}
+
+.hero-info-section .info-box {
+    margin-top: auto !important;
+    width: 100%;
+}
+
+/* removed .info-box block here to avoid duplication if it exists twice */
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.hero-info-section .info-icon {
+    position: absolute !important;
+    top: 1.5rem !important;
+    right: 1.5rem !important;
+    color: #3b82f6 !important;
+    margin: 0 !important;
+    display: block !important;
+}
+
+.hero-info-section .info-icon svg {
+    width: 28px !important;
+    height: 28px !important;
+}
+
+.hero-info-section .info-title {
+    color: #1a202c !important;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.hero-info-section .info-text {
+    color: #4a5568 !important;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        padding: 6rem 1.5rem;
+    }
+
+    .hero-info-section {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: 4rem;
+        justify-content: center;
+        width: 100%;
+        z-index: 20;
+    }
+
+    .info-steps-container {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-step {
+        display: none;
+    }
+
+    .info-box-wrapper.main-step {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 12px;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .info-box-wrapper {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 12px;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .info-icon {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 768px) {
     .hero {
-        padding: 6rem 1.5rem;
-        min-height: 70vh;
+        min-height: 80vh;
+        padding: 8rem 1.5rem 4rem;
     }
 
-    .hero-title span {
-        font-size: clamp(2.2rem, 8vw, 2.8rem);
-    }
+    .hero-title {
+        font-size: 2.2rem;
 
-    .hero-description-container {
-        padding: 1.5rem 1rem;
+        br {
+            display: none;
+        }
     }
 
     .hero-description {
         font-size: 1rem;
         margin-bottom: 2rem;
-        max-width: 100%;
     }
 
-    .enquire-btn {
-        padding: 0.8rem 2rem;
-        width: 100%;
-        max-width: 300px;
+    .hero-overlay {
+        background: rgba(0, 0, 0, 0.5);
+        /* Slightly darker for better readability on mobile */
     }
 }
 
 @media (max-width: 480px) {
-    .hero {
-        padding: 4rem 1rem;
-    }
-
     .hero-title {
-        gap: 0.25rem;
-    }
-
-    .hero-title span {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .hero-description {
-        font-size: 0.95rem;
-        padding: 0 0.5rem;
-        max-width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .info-box-wrapper {
+        padding: 1.5rem;
+        min-width: auto;
+        width: 90%;
+    }
+
+    .info-title {
+        font-size: 1.1rem;
+    }
+
+    .info-text {
+        font-size: 0.9rem;
     }
 }

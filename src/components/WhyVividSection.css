@@ -1,182 +1,232 @@
-.why-vivid {
+.why-vivid-stats {
     width: 100%;
-    padding: 100px 0;
-    background-color: #e6f9fa;
-    /* Match provided bg color */
-    color: #051c45;
+    background-color: #f0f7ff;
+    /* Light bluish background as per design */
+    padding: 6rem 0;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
 }
 
-.why-vivid-container {
-    max-width: 1250px;
+.bento-container {
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 40px;
-    /* Give space from side margins */
-}
-
-.why-vivid-header {
+    padding: 0 4rem;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 60px;
+    gap: 1.5rem;
 }
 
-.why-title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin: 0;
-}
-
-.more-link {
-    text-decoration: none;
-    color: #051c45;
-    font-weight: 600;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.why-vivid-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 50px;
-}
-
-.features-side {
-    flex: 1;
-}
-
-.animation-side {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.accordion-list {
+.bento-column {
     display: flex;
     flex-direction: column;
+    gap: 1.5rem;
 }
 
-.accordion-item {
-    border-bottom: 1.5px solid rgba(5, 28, 69, 0.15);
-    padding: 15px 0;
+.left-col {
+    flex: 1;
 }
 
-.feature-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    padding: 10px 0;
+.right-col {
+    flex: 1.2;
 }
 
-.feature-label {
-    font-size: 1.7rem;
-    font-weight: 500;
-    margin: 0;
-    color: #051c45;
-    transition: color 0.3s ease;
-}
-
-.feature-row:hover .feature-label {
-    color: #0061ff;
-}
-
-.arrow {
-    font-size: 1.8rem;
-    transition: transform 0.3s ease;
-}
-
-.arrow.up {
-    transform: rotate(180deg);
-}
-
-.feature-details {
-    max-height: 0;
+/* Card Styles */
+.bento-card {
+    border-radius: 12px;
     overflow: hidden;
-    transition: all 0.4s ease-out;
-    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.feature-details.visible {
-    max-height: 200px;
-    margin-top: 15px;
-    opacity: 1;
+.bento-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-.feature-details p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #4a5568;
-    margin: 0;
+/* Dark Cards */
+.dark-card {
+    background-color: #212529;
+    /* Deep charcoal as per screenshot */
+    color: #ffffff;
+    padding: 3rem 2.5rem;
+    transition: background-color 0.4s ease, transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* Floating animation effect */
-@keyframes float {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
+.dark-card:hover {
+    background-color: #3b82f6;
+    /* Turn blue on hover */
 }
 
-.floating-animation {
-    animation: float 4s ease-in-out infinite;
-    width: 100%;
+.expert-hands {
+    flex: 1;
+}
+
+.projects-done {
+    flex: 1;
+}
+
+/* Blue Card */
+.blue-card {
+    background-color: #3b82f6;
+    /* Bright professional blue */
+    color: #ffffff;
+    padding: 3.5rem 3rem;
+    height: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-@media (max-width: 1024px) {
-    .why-vivid-content {
+/* Image Cards */
+.image-card {
+    width: 100%;
+    line-height: 0;
+}
+
+.bento-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.world-map {
+    height: 300px;
+}
+
+.digital-conn {
+    height: 300px;
+}
+
+/* Typography */
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.stat-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.secondary-info {
+    margin-top: 4rem;
+}
+
+.info-title {
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.info-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 2rem;
+    max-width: 480px;
+}
+
+.region-stat {
+    font-size: 2.8rem;
+    font-weight: 500;
+}
+
+/* Special adjustments for Happy Clients content */
+.happy-clients {
+    flex: 1;
+}
+
+/* Animations */
+.bento-card {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.expert-hands {
+    animation-delay: 0.1s;
+}
+
+.digital-conn {
+    animation-delay: 0.2s;
+}
+
+.world-map {
+    animation-delay: 0.3s;
+}
+
+.happy-clients {
+    animation-delay: 0.4s;
+}
+
+.projects-done {
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsiveness */
+@media (max-width: 1200px) {
+    .bento-container {
+        padding: 0 2rem;
+    }
+
+    .stat-number {
+        font-size: 3rem;
+    }
+
+    .stat-label {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .bento-container {
         flex-direction: column;
-        text-align: center;
     }
 
-    .why-title {
-        font-size: 2.8rem;
-    }
-
-    .feature-row {
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .animation-side {
-        order: -1;
+    .left-col,
+    .right-col {
+        width: 100%;
+        flex: none;
     }
 }
 
 @media (max-width: 768px) {
-    .why-vivid {
-        padding: 60px 0;
+    .why-vivid-stats {
+        padding: 4rem 0;
     }
 
-    .why-vivid-container {
-        padding: 0 20px;
+    .dark-card,
+    .blue-card {
+        padding: 2.5rem 1.5rem;
     }
 
-    .why-title {
-        font-size: 2.2rem;
+    .stat-number {
+        font-size: 2.5rem;
     }
 
-    .more-link .link-text {
-        display: none;
+    .stat-label {
+        font-size: 1.4rem;
     }
 
-    .more-link {
-        font-size: 1.5rem;
-    }
-
-    .feature-label {
-        font-size: 1.3rem;
+    .info-title {
+        font-size: 1.8rem;
     }
 }

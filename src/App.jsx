@@ -4,8 +4,11 @@ import ServicesSection from './components/ServicesSection';
 import TechnologiesSection from './components/TechnologiesSection';
 import WhyVividSection from './components/WhyVividSection';
 import ResultsSection from './components/ResultsSection';
-import JoinOurTeamSection from './components/JoinOurTeamSection';
+import SolutionsSection from './components/SolutionsSection';
+import BannerSection from './components/BannerSection';
+import InnovationSection from './components/InnovationSection';
 import ContactSection from './components/ContactSection';
+import NewsletterSection from './components/NewsletterSection';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -19,8 +22,11 @@ function App() {
         <TechnologiesSection />
         <WhyVividSection />
         <ResultsSection />
-        <JoinOurTeamSection />
-        <ContactSection />
+        <SolutionsSection />
+        <BannerSection />
+        <InnovationSection />
+        <NewsletterSection />
+
       </main>
       <Footer />
     </div>
